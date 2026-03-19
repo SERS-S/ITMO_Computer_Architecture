@@ -1,0 +1,19 @@
+limit: 1000
+memory_size: 0x100
+
+memory_mapped_io:
+  0x80: [1]
+  0x84: []
+
+reports:
+  - name: Trace
+    slice: all
+    view: |
+      {pc:hex}: {instruction} {pc:label}
+      Acc={Acc:hex} V={V} C={C}
+
+  - name: Result
+    slice: last
+    view: |
+      in:  {io:0x80:dec}
+      out: {io:0x84:dec}
