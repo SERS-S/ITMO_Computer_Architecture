@@ -7,7 +7,7 @@ memory_mapped_io:
 
 reports:
   - name: Trace
-    slice: [tail, 10]
+    slice: all
     view: |
       {pc:hex}: {instruction} {pc:label}
       T={T:dec} S={S:dec} R={R:dec}
