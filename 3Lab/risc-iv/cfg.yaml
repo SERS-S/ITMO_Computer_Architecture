@@ -1,0 +1,21 @@
+limit: 1000
+memory_size: 0x1000
+
+memory_mapped_io:
+  0x80: [72, 101, 108, 108, 111, 10]
+  0x84: []
+
+reports:
+  - name: Trace
+    slice: all
+    view: |
+      {pc:hex}: {instruction} {pc:label}
+      T0={T0:hex} T1={T1:hex} T2={T2:hex} T3={T3:hex}
+      T4={T4:hex} T5={T5:hex} T6={T6:hex}
+      S1={S1:hex} SP={Sp:hex} RA={Ra:hex}
+
+  - name: Result
+    slice: last
+    view: |
+      in:  {io:0x80:dec}
+      out: {io:0x84:dec}
